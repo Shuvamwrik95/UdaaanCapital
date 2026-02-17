@@ -1,91 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Udaaan | Fundraising & VC Connect Platform</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <title>Udaaan Capital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f9;
+      color: #222;
+    }
+
+    header {
+      background: #0b3d91;
+      color: white;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav button {
+      margin-left: 10px;
+      padding: 8px 14px;
+      border: none;
+      background: white;
+      color: #0b3d91;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 80px 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #0b3d91, #1e5bd7);
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 14px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    button.primary {
+      background: #0b3d91;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .dashboard {
+      display: none;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .metric-box {
+      background: #eef3ff;
+      padding: 16px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-600">Udaaan</h1>
-      <div class="space-x-6">
-        <a href="#features" class="hover:text-blue-600">Features</a>
-        <a href="#how" class="hover:text-blue-600">How it Works</a>
-        <a href="#contact" class="hover:text-blue-600">Contact</a>
-      </div>
-    </div>
+<body>
+
+<header>
+  <div class="logo">Udaaan Capital</div>
+  <nav>
+    <button onclick="showSection('startup')">Startup</button>
+    <button onclick="showSection('investor')">Investor</button>
+    <button onclick="showSection('dashboard')">Dashboard</button>
   </nav>
+</header>
 
-  <!-- Hero Section -->
-  <section class="text-center py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-    <h2 class="text-4xl font-bold mb-4">Raise Capital Faster with Udaaan</h2>
-    <p class="text-lg mb-6">Connecting startups with investors, mentors, and fundraising tools.</p>
-    <button class="bg-white text-blue-600 px-6 py-3 rounded-2xl font-semibold shadow-lg">
-      Get Started
+<section class="hero">
+  <h1>Raise Capital Faster</h1>
+  <p>Connecting startups with the right investors.</p>
+</section>
+
+<div class="container">
+
+  <!-- STARTUP FORM -->
+  <div id="startup" class="card">
+    <h2>Startup Registration</h2>
+    <input placeholder="Startup Name">
+    <input placeholder="Founder Name">
+    <input placeholder="Email">
+    <input placeholder="Funding Stage (Pre-seed, Seed...)">
+    <input placeholder="Industry">
+    <button class="primary" onclick="alert('Startup profile created!')">
+      Submit Startup
     </button>
-  </section>
+  </div>
 
-  <!-- Features -->
-  <section id="features" class="py-16 max-w-6xl mx-auto px-6">
-    <h3 class="text-3xl font-bold text-center mb-12">Platform Features</h3>
-    <div class="grid md:grid-cols-3 gap-8">
+  <!-- INVESTOR FORM -->
+  <div id="investor" class="card" style="display:none;">
+    <h2>Investor Registration</h2>
+    <input placeholder="Investor / Fund Name">
+    <input placeholder="Email">
+    <input placeholder="Ticket Size">
+    <input placeholder="Preferred Sector">
+    <button class="primary" onclick="alert('Investor profile created!')">
+      Submit Investor
+    </button>
+  </div>
 
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h4 class="font-bold text-xl mb-2">VC Connect</h4>
-        <p>Discover and connect with venture capital firms, angel investors, and funds.</p>
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="card dashboard">
+    <h2>Fundraising Dashboard</h2>
+    <p>Startup: ExampleAI</p>
+
+    <div class="metrics">
+      <div class="metric-box">
+        <h3>₹50L</h3>
+        <p>Target Raise</p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h4 class="font-bold text-xl mb-2">Pitch Deck Review</h4>
-        <p>Get feedback from mentors and investors to improve your fundraising success.</p>
+      <div class="metric-box">
+        <h3>12</h3>
+        <p>Investors Contacted</p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h4 class="font-bold text-xl mb-2">Capital Raising Tools</h4>
-        <p>Track investor outreach, manage fundraising pipeline, and share updates.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- How it Works -->
-  <section id="how" class="bg-gray-100 py-16">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-bold mb-10">How Udaaan Works</h3>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div>
-          <div class="text-2xl font-bold text-blue-600">1</div>
-          <p>Create your startup profile</p>
-        </div>
-        <div>
-          <div class="text-2xl font-bold text-blue-600">2</div>
-          <p>Connect with investors</p>
-        </div>
-        <div>
-          <div class="text-2xl font-bold text-blue-600">3</div>
-          <p>Raise capital and grow</p>
-        </div>
+      <div class="metric-box">
+        <h3>4</h3>
+        <p>Meetings Scheduled</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Contact -->
-  <section id="contact" class="py-16 text-center">
-    <h3 class="text-3xl font-bold mb-4">Contact Us</h3>
-    <p class="mb-6">Partner with Udaaan to accelerate your fundraising journey.</p>
-    <input class="border p-3 rounded-lg mr-2" placeholder="Email" />
-    <button class="bg-blue-600 text-white px-5 py-3 rounded-lg">Submit</button>
-  </section>
+</div>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center py-6">
-    <p>© 2026 Udaaan. All rights reserved.</p>
-  </footer>
+<footer>
+  Udaaan Capital MVP Prototype
+</footer>
+
+<script>
+  function showSection(sectionId) {
+    document.getElementById("startup").style.display = "none";
+    document.getElementById("investor").style.display = "none";
+    document.getElementById("dashboard").style.display = "none";
+
+    document.getElementById(sectionId).style.display = "block";
+  }
+</script>
 
 </body>
 </html>
